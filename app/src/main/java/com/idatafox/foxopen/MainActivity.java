@@ -1,5 +1,6 @@
 package com.idatafox.foxopen;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -43,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mytView.getPaint().setShader(myshader);
         mLayout=(TextInputLayout)findViewById(R.id.signup);
         signInputName=(EditText)findViewById(R.id.editText);
-        animation=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
+       // animation=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
+        animation=AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
         vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         mButton = (Button) (Button) findViewById(R.id.button2);
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -61,16 +63,19 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-        });
+        });}
 
 
+    public void openNewWin(View v){
 
-
+        Intent intentOne=new Intent(this,NextActivity.class);
+        startActivity(intentOne);
 
 
 
 
     }
+
 }
 
 

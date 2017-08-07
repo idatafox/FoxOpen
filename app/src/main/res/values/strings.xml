@@ -3,4 +3,6 @@
     <string name="brand_name">数狐精读</string>
     <string name="value_a">欢迎大家参加数狐精讲</string>
     <string name="button_go">继续</string>
+    <string name="button_example_alist">基础组件演示</string>
+    <string name="text_aDemo">文本框特效</string>
 </resources>
