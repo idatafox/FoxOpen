@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         mytView.getPaint().setShader(myshader);
         mLayout=(TextInputLayout)findViewById(R.id.signup);
         signInputName=(EditText)findViewById(R.id.editText);
+
+
+        /*
+        signInputName.setText(null);
+        signInputName.setHintTextColor(Color.BLACK);
+        signInputName.setText("FUNK YOU!");*/
+
        // animation=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake);
         animation=AnimationUtils.loadAnimation(getBaseContext(),R.anim.shake);
         vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -58,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 mLayout.setErrorEnabled(false);
                 if(signInputName.getText().toString().trim().isEmpty()){
                     mLayout.setErrorEnabled(true);
-                    mLayout.setError("please enter a name");
+                    mLayout.setError("please enter ");
                     signInputName.setError("Valid input required");
                 }
 
