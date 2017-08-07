@@ -1,4 +1,7 @@
 package com.idatafox.foxopen;
+/**
+ * show how to configure effect .
+ */
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
