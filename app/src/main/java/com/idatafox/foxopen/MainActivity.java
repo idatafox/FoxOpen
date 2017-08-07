@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MainActivity log8888888","running....");
+                Log.d("MainActivity log","running....");
                 signInputName.setAnimation(animation);
                 signInputName.startAnimation(animation);
                 vib.vibrate(120);
