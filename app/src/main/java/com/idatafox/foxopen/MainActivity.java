@@ -140,11 +140,42 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String s){
+                createJSONObjectFromInitString(s);
                 Log.d("response data",s);
+
             }
         }.execute();
 
     }
+
+
+    /**
+    * define json object from init string value
+    */
+
+
+    public String createJSONObjectFromInitString(String initString){
+
+            try {
+                JSONObject jsonObject = new JSONObject(initString);
+                String userName=jsonObject.getString("userName");
+                Log.d("final userName",userName);
+                if(userName.equals("admin")){
+                    Intent myintent=new Intent(getBaseContext(),TopNewsReporter.class);
+                    startActivity(myintent);
+                }
+
+
+            }
+            catch(Exception e1){
+                Log.d("createJSONObject error",e1.toString());
+            }
+              return null;
+    }
+
+
+
+
     /**
      * get response data from remote server
      */
