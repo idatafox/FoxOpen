@@ -7,4 +7,16 @@
     <string name="button_example_alist">基础组件演示</string>
     <string name="text_aDemo">用户密码</string>
     <string name="text_bDemo">微信验证码</string>
+    <!-- names -->
+    <string-array name="titleList">
+        <item>Jerry</item>
+        <item>bob</item>
+
+    </string-array>
+
+    <!-- pics -->
+    <array name="pics">
+        <item>@drawable/mystyle</item>
+        <item>@drawable/uk</item>
+    </array>
 </resources>
