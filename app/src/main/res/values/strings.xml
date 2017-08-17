@@ -16,7 +16,7 @@
 
     <!-- pics -->
     <array name="pics">
-        <item>@drawable/mystyle</item>
+        <item>@drawable/ffa</item>
         <item>@drawable/uk</item>
     </array>
 </resources>
