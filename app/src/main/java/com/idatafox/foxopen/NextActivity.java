@@ -22,6 +22,13 @@ public class NextActivity extends AppCompatActivity {
         startActivity(intentObj);
     }
 
+    //add bootom bar
+    public void addBottomBar(View v){
+
+        Intent intentObj=new Intent(this,MulActionBarsDemo.class);
+        startActivity(intentObj);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.abc,menu);

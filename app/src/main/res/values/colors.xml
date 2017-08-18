@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFffff</color>
     <color name="colorFonta">#000000</color>
+    <color name="colorFontaA">#81000000</color>
 </resources>
 
 
