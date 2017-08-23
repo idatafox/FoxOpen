@@ -24,7 +24,14 @@
         <activity android:name=".NextActivity" />
         <activity android:name=".EditTextDemoA" />
         <activity android:name=".TopNewsReporter" />
-        <activity android:name=".MulActionBarsDemo"></activity>
+        <activity android:name=".MulActionBarsDemo" />
+        <activity android:name=".SmallArticlePage" />
+        <activity
+            android:name=".pageViewDemo"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".StartMyBkTaskDemo"></activity>
+
+        <service android:name=".MyBkTaskDemo" />
     </application>
 
 </manifest>

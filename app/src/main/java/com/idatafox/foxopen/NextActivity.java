@@ -28,6 +28,23 @@ public class NextActivity extends AppCompatActivity {
         Intent intentObj=new Intent(this,MulActionBarsDemo.class);
         startActivity(intentObj);
     }
+    //add customer listview demo
+    public void addListViewA(View v){
+        Intent intentObj=new Intent(this,TopNewsReporter.class);
+        startActivity(intentObj);
+    }
+
+    //add custom viewpager demo
+    public void addPageViewer(View v){
+        Intent intentObj = new Intent(this,pageViewDemo.class);
+        startActivity(intentObj);
+
+    }
+    //add bktask demo
+    public void addBKTaskDemo(View v){
+        Intent intentObj = new Intent(this,StartMyBkTaskDemo.class);
+        startActivity(intentObj);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -7,11 +7,13 @@ package com.idatafox.foxopen;
 public class RowItem {
     private int titleName=0;
     private String description=null;
+    private String arc_body=null;
 
 
-    public RowItem(int tName,String desA){
+    public RowItem(int tName,String desA,String arcBody){
         this.titleName=tName;
         this.description=desA;
+        this.arc_body=arcBody;
     }
 
     public int getTitleName(){
@@ -27,4 +29,7 @@ public class RowItem {
     public void setDescription(String tDes){
         this.description=tDes;
     }
+
+    public String getArc_body(){return this.arc_body;}
+    public void setArc_body(String arcBody){this.arc_body=arcBody;}
 }

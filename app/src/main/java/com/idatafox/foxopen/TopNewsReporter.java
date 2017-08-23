@@ -20,6 +20,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,27 +38,33 @@ public class TopNewsReporter extends AppCompatActivity implements OnItemClickLis
     TypedArray profile_pics;
     List<RowItem> rowItems;
     ListView mylistview;
-
+    String resV=null;
+    CustomAdapter adapter=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_news_reporter);
         final ActionBar actionBar =  getSupportActionBar();
         actionBar.setTitle(R.string.topA);
-        doPostJsonData();
+
         rowItems = new ArrayList<RowItem>();
+        mylistview = (ListView) findViewById(R.id.arcA);
+        doPostJsonData();
+        mylistview.setOnItemClickListener(this);
+
+        /*
         member_names = getResources().getStringArray(R.array.titleList);
         profile_pics = getResources().obtainTypedArray(R.array.pics);
 
         for (int i = 0; i < member_names.length; i++) {
             RowItem item = new RowItem(profile_pics.getResourceId(i, -1),member_names[i]);
             rowItems.add(item);
-        }
-        mylistview = (ListView) findViewById(R.id.arcA);
-        CustomAdapter adapter = new CustomAdapter(this, rowItems);
-        mylistview.setAdapter(adapter);
+        }*/
 
-        mylistview.setOnItemClickListener(this);
+       // CustomAdapter adapter = new CustomAdapter(this, rowItems);
+       // mylistview.setAdapter(adapter);
+
+       // mylistview.setOnItemClickListener(this);
 
 
 
@@ -119,6 +126,10 @@ public class TopNewsReporter extends AppCompatActivity implements OnItemClickLis
             @Override
             protected void onPostExecute(String s){
                // createJSONObjectFromInitString(s);
+                fillRowItems(s,rowItems);
+                adapter = new CustomAdapter(getBaseContext(),rowItems);
+                mylistview.setAdapter(adapter);
+               // mylistview.setOnItemClickListener(getBaseContext());
                 Log.d("response data",s);
 
             }
@@ -163,7 +174,26 @@ public class TopNewsReporter extends AppCompatActivity implements OnItemClickLis
 
     }
 
+   // decode json data from return data set
+    public void fillRowItems(String s , List<RowItem> items){
 
+        try {
+            JSONArray jsonArray = new JSONArray(s);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject item = jsonArray.getJSONObject(i);
+                String name = item.get("arc_id").toString();
+                String arcBody=item.get("arc_body").toString();
+                String surname = item.get("arc_title").toString();
+                RowItem rowItem= new RowItem(i,surname,arcBody);
+                rowItems.add(rowItem);
+            }
+        }
+        catch(JSONException e2){
+            Log.d("fillRowItem error",e2.toString());
+        }
+
+
+    }
    //define String List
 
     private ArrayList<String> doGetStringList(String vs){
@@ -202,10 +232,13 @@ public class TopNewsReporter extends AppCompatActivity implements OnItemClickLis
     public void onItemClick(AdapterView<?> parent, View view, int position,
                             long id) {
 
-        String member_name = rowItems.get(position).getDescription();
-        Toast.makeText(getApplicationContext(), "" + member_name,
-                Toast.LENGTH_SHORT).show();
-        Intent intentOne=new Intent(getBaseContext(),NextActivity.class);
+        String member_name = rowItems.get(position).getArc_body();
+        String arc_title = rowItems.get(position).getDescription();
+       // Toast.makeText(getApplicationContext(), "" + member_name,
+         //       Toast.LENGTH_SHORT).show();
+        Intent intentOne=new Intent(getBaseContext(),SmallArticlePage.class);
+        intentOne.putExtra("arc_body", member_name);
+        intentOne.putExtra("arc_title",arc_title);
         startActivity(intentOne);
 
     }
